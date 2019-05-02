@@ -9,7 +9,9 @@ CONFIG += debug staticlib c++1z
 TARGET = as4
 WARNINGS += -Wall
 
-QT += widgets
+QT += widgets# 내가 막음, ㅁ바로밑에거가 내꺼
+#QT  += core gui
+
 
 # Add source files for this project
 # If your .cpp file is not specified in here, it will not be compiled
@@ -40,3 +42,6 @@ HEADERS += \
 
 ## Build target configuration
 DESTDIR = $$myDEST_ROOT/as4
+
+FORMS += \
+    mainwindow.ui \

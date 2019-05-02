@@ -1,8 +1,6 @@
 #include <QApplication>
-
 #include "widgets/mainwindow.h"
 
-using namespace as4::widgets;
 
 // Entry point of our application
 int main(int argc, char **argv)
@@ -11,7 +9,7 @@ int main(int argc, char **argv)
 
     // Create and show our main window. 'mainWindow' is the
     // root QWidget of all QWidgets in this application
-    MainWindowWidget mainWindow;
+    MainWindow mainWindow;
     mainWindow.show();
 
     // Enters main event loop and waits until exit() is called.
