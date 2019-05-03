@@ -1,6 +1,6 @@
 <RCC>
-    <qresource prefix="/images">
-        <file>bar.png</file>
+    <qresource prefix="/image">
         <file>Pianoroll-main.png</file>
+        <file>bar.png</file>
     </qresource>
 </RCC>

@@ -1,5 +1,8 @@
 #include "io/seqio.h"
 
+#include <iostream>
+using namespace std;
+
 namespace as4::io
 {
     namespace operators
@@ -17,31 +20,31 @@ namespace as4::io
                 out << seq[i]->GetPitch().GetOctave();
                 out << std::endl;
             }
+            out.close();
             return out;
         }
 
         std::ifstream& operator>> (std::ifstream& in, as4::model::ISeq& seq)
         {
-            int i=0;
             while(!in.eof()){
+
                 as4::model::Timestamp tempStart;
                 as4::model::TimeInterval tempInterval;
 
                 in >> tempStart;
-                seq[i]->SetStart(tempStart);
                 in >> tempInterval;
-                seq[i]->SetDuration(tempInterval);
 
                 int tempPitch, tempOctave;
                 in >> tempPitch;
                 in >> tempOctave;
-
                 as4::model::Pitch tempP(tempPitch, tempOctave);
 
-                seq[i]->SetPitch(tempP);
+                as4::model::Note tempNote(tempStart, tempInterval, tempP);
 
-                i++;
+                seq.Put(tempNote);
             }
+            seq.PopBack();
+            in.close();
             return in;
         }
     }

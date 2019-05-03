@@ -95,11 +95,12 @@ namespace as4::model
                 return m_notes.size();
             }
 
-            Note* operator[] (int idx){
-                return m_notes[idx];
-            }
+            Note* operator[] (int idx);
 
             bool operator== (const ISeq& other) const;
+
+            void PopBack();
+
 
     private:
         void Sort();

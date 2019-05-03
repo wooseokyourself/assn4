@@ -1,5 +1,5 @@
 #include <algorithm>
-
+#include <iostream>
 #include "model/seq.h"
 
 namespace as4::model
@@ -106,8 +106,34 @@ namespace as4::model
             return a->GetStart() < b->GetStart(); });
     }
 
+    Note* ISeq::operator[] (int idx){
+        return m_notes[idx];
+    }
+
     bool ISeq::operator== (const ISeq& other) const
     {
-        return getSize() == other.getSize();
+        //std::cout<<" >> 시퀀스 == 연산자 작동!"<<std::endl;
+        if(m_notes.size()!=other.getSize()){
+        //    std::cout<<" >> return false; 두 시퀀스의 size가 다릅니다("<<m_notes.size()<<"/"<<other.getSize()<<")."<<std::endl;
+            return false;
+        }
+
+        else{
+            for(int i=0; i<m_notes.size(); i++){
+                if(m_notes[i]->GetStart() != other.m_notes[i]->GetStart() ||
+                   m_notes[i]->GetDuration() != other.m_notes[i]->GetDuration() ||
+                   m_notes[i]->GetPitch().GetPitchClass() != other.m_notes[i]->GetPitch().GetPitchClass() ||
+                   m_notes[i]->GetPitch().GetOctave() != other.m_notes[i]->GetPitch().GetOctave()){
+                   //std::cout<<" >> return false; 두 시퀀스의 내용이 다릅니다."<<std::endl;
+                   return false;
+                }
+            }
+        }
+        return true;
     }
+
+    void ISeq::PopBack(){
+        m_notes.pop_back();
+    }
+
 }
