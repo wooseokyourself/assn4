@@ -1,6 +1,6 @@
 #ifndef __AS4_WIDGETS_MAINWINDOW_H
 #define __AS4_WIDGETS_MAINWINDOW_H
-
+#include <iostream>
 #include <QMainWindow>
 
 /*
@@ -32,6 +32,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+public slots:
 
 private:
     Ui::MainWindow *ui;

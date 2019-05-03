@@ -16,7 +16,7 @@ QT += widgets# 내가 막음, ㅁ바로밑에거가 내꺼
 # Add source files for this project
 # If your .cpp file is not specified in here, it will not be compiled
 SOURCES += \
-    $$mySRC_DIR/widgets/mainwindow.cpp \ 
+    $$mySRC_DIR/widgets/mainwindow.cpp \
     $$mySRC_DIR/model/note.cpp \
     $$mySRC_DIR/model/pitch.cpp \
     $$mySRC_DIR/model/seq.cpp \
@@ -44,4 +44,7 @@ HEADERS += \
 DESTDIR = $$myDEST_ROOT/as4
 
 FORMS += \
-    mainwindow.ui \
+    mainwindow.ui
+
+RESOURCES += \
+    resources.qrc
