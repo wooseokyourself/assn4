@@ -63,33 +63,30 @@ namespace as4::model
     {
         public:
             /**
-             * @param bpm           number of beats played per minute
-             * @param granuality    number of units in a beat
-             *                      i.e) if granuality is 2, 
-             *                      TimeInterval value 1,2 corresponds to 0.5 beat, 1.0 beat.
-             *                      similarly, 3,4 corresponds to 1.5 beat, 2.0 beat
+             * @param bpm = 120             number of beats played per minute
+             * @param granuality = 4        number of units in a beat
+             *                          i.e) if granuality is 2,
+             *                          TimeInterval value 1,2 corresponds to 0.5 beat, 1.0 beat.
+             *                          similarly, 3,4 corresponds to 1.5 beat, 2.0 beat
+             *
+             *
+             * Note!!!!
+             * TimeStamp    <--  m_start
+             * TimeInterval <--  m_duration
              */
             TimeConfig(double bpm, uint64_t granuality);
 
-            /**
-             * Converts a TimeInterval to seconds
-             */
             double Seconds(const TimeInterval &t) const;
+            // TimeInterval --> seconds
 
-            /**
-             * Converts a TimeInterval to beats
-             */
             double Beats(const TimeInterval &t) const;
+            // TimeInterval --> beats
 
-            /**
-             * Converts seconds to TimeInterval
-             */
             TimeInterval IntervalFromSeconds(double seconds) const;
+            // seconds --> TimeInterval
 
-            /**
-             * Converts beats to TimeInterval
-             */
             TimeInterval IntervalFromBeats(double beats) const;
+            // beats --> TimeInterval
 
         private:
             double m_bpm; // number of beats per second

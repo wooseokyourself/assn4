@@ -26,11 +26,11 @@ private slots:
 void TestIo::ReadWriteSeq()
 {
     ISeq *seq1 = new DefaultSeq;
-
+    // ( start , duration, {Pitch , Octave} )
     seq1->Put({100, 10, {0, 1}}); // C1 start:duration 100:10
-    seq1->Put({0, 10, {0, 1}}); // C1 0:10
-    seq1->Put({10, 10, {2, 1}}); // D1 10:10
-    seq1->Put({10, 20, {5, 1}}); // F1 10:20
+    seq1->Put({0, 10, {0, 1}}); // 0:10, C1
+    seq1->Put({10, 10, {2, 1}}); // 10:10, D1
+    seq1->Put({10, 20, {5, 1}}); // 10:20, F1
 
     // temporary output file
     std::string tmp_file_path = "TestIoReadWriteSeq.seq";
@@ -86,10 +86,10 @@ void TestIo::ReadWriteSong()
 {
     Song song;
 
-    song.GetMelodySeq()->Put({100, 10, {0, 1}}); // C1 start:duration 100:10
-    song.GetMelodySeq()->Put({0, 10, {0, 1}}); // C1 0:10
-    song.GetMelodySeq()->Put({10, 10, {2, 1}}); // D1 10:10
-    song.GetMelodySeq()->Put({10, 20, {5, 1}}); // F1 10:20
+    song.GetMelodySeq()->Put({100, 10, {0, 1}}); // C1 start:duration 100:10 >> 200유닛에서 play
+    song.GetMelodySeq()->Put({0, 10, {0, 1}}); // C1 0:10 >> 2유닛에서 play
+    song.GetMelodySeq()->Put({10, 10, {2, 1}}); // D1 10:10 >> 20유닛에서 play
+    song.GetMelodySeq()->Put({10, 20, {5, 1}}); // F1 10:20 >> 20유닛에서 play
 
     song.GetDrumSeq()->Put({90, 10, {0, 1}}); // C1 start:duration 100:10
     song.GetDrumSeq()->Put({10, 10, {0, 1}}); // C1 0:10

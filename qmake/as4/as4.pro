@@ -9,14 +9,11 @@ CONFIG += debug staticlib c++1z
 TARGET = as4
 WARNINGS += -Wall
 
-QT += widgets# 내가 막음, ㅁ바로밑에거가 내꺼
-#QT  += core gui
-
+#QT += widgets
 
 # Add source files for this project
 # If your .cpp file is not specified in here, it will not be compiled
 SOURCES += \
-    $$mySRC_DIR/widgets/mainwindow.cpp \
     $$mySRC_DIR/model/note.cpp \
     $$mySRC_DIR/model/pitch.cpp \
     $$mySRC_DIR/model/seq.cpp \
@@ -30,7 +27,6 @@ SOURCES += \
 # If your .h file is not specified in here, you might not be able to include
 # in other source files.
 HEADERS += \
-    $$myINCLUDE_DIR/widgets/mainwindow.h \
     $$myINCLUDE_DIR/model/note.h \
     $$myINCLUDE_DIR/model/pitch.h \
     $$myINCLUDE_DIR/model/seq.h \
@@ -42,9 +38,3 @@ HEADERS += \
 
 ## Build target configuration
 DESTDIR = $$myDEST_ROOT/as4
-
-FORMS += \
-    mainwindow.ui
-
-RESOURCES += \
-    image/resource.qrc

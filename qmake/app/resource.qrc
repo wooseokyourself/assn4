@@ -1,0 +1,43 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>image/Pianoroll-main.png</file>
+        <file>image/bar.png</file>
+        <file>image/stick.png</file>
+    </qresource>
+    <qresource prefix="/audio/melody">
+        <file>audio/melody/9_4.wav</file>
+        <file>audio/melody/8_4.wav</file>
+        <file>audio/melody/7_4.wav</file>
+        <file>audio/melody/6_4.wav</file>
+        <file>audio/melody/5_4.wav</file>
+        <file>audio/melody/4_4.wav</file>
+        <file>audio/melody/3_5.wav</file>
+        <file>audio/melody/3_4.wav</file>
+        <file>audio/melody/2_5.wav</file>
+        <file>audio/melody/2_4.wav</file>
+        <file>audio/melody/1_5.wav</file>
+        <file>audio/melody/1_4.wav</file>
+        <file>audio/melody/11_4.wav</file>
+        <file>audio/melody/10_4.wav</file>
+        <file>audio/melody/0_5.wav</file>
+        <file>audio/melody/0_4.wav</file>
+    </qresource>
+    <qresource prefix="/audio/drum">
+        <file>audio/drum/9_4.wav</file>
+        <file>audio/drum/8_4.wav</file>
+        <file>audio/drum/7_4.wav</file>
+        <file>audio/drum/6_4.wav</file>
+        <file>audio/drum/5_4.wav</file>
+        <file>audio/drum/4_4.wav</file>
+        <file>audio/drum/3_5.wav</file>
+        <file>audio/drum/3_4.wav</file>
+        <file>audio/drum/2_5.wav</file>
+        <file>audio/drum/2_4.wav</file>
+        <file>audio/drum/1_5.wav</file>
+        <file>audio/drum/1_4.wav</file>
+        <file>audio/drum/11_4.wav</file>
+        <file>audio/drum/10_4.wav</file>
+        <file>audio/drum/0_5.wav</file>
+        <file>audio/drum/0_4.wav</file>
+    </qresource>
+</RCC>
