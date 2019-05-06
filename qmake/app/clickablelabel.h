@@ -4,9 +4,13 @@
 #include <QLabel>
 #include <QWidget>
 #include <Qt>
-#include <QPixmap>
+#include <QPainter>
 #include <QMouseEvent>
 #include <QPoint>
+
+#include <iostream>
+
+using namespace std;
 
 class ClickableLabel : public QLabel
 {
@@ -18,8 +22,10 @@ public:
 
 protected:
     void mousePressEvent(QMouseEvent* event);
-    void PutNote(QPoint pos);
-    void RemoveNote(QPoint pos);
+
+signals:
+    void Put(QPoint pos, ClickableLabel*);
+    void Remove(QPoint pos, ClickableLabel*);
 };
 
 #endif // CLICKABLELABLE_H

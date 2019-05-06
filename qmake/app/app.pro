@@ -30,9 +30,11 @@ RESOURCES += \
 
 HEADERS += \
     clickablelabel.h \
-    mainwindow.h
+    mainwindow.h \
+    visualnote.h
 
 SOURCES += \
     clickablelabel.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    visualnote.cpp

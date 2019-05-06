@@ -1,6 +1,4 @@
 #include "clickablelabel.h"
-#include <iostream>
-using namespace std;
 
 ClickableLabel::ClickableLabel(QWidget* parent, Qt::WindowFlags f)
     : QLabel(parent)
@@ -9,28 +7,15 @@ ClickableLabel::ClickableLabel(QWidget* parent, Qt::WindowFlags f)
 }
 
 ClickableLabel::~ClickableLabel()
-{   }
+{
+}
 
 void ClickableLabel::mousePressEvent(QMouseEvent *event)
 {
     if(event->button() == Qt::LeftButton){
-        PutNote(event->pos());
+        emit Put(event->pos(), this);
     }
     else if(event->button() == Qt::RightButton){
-        RemoveNote(event->pos());
+        emit Remove(event->pos(), this);
     }
-}
-
-void ClickableLabel::PutNote(QPoint pos)
-{
-    cout<<"left"<<endl;
-    cout<<pos.x()<<endl;
-    cout<<pos.y()<<endl;
-}
-
-void ClickableLabel::RemoveNote(QPoint pos)
-{
-    cout<<"right"<<endl;
-    cout<<pos.x()<<endl;
-    cout<<pos.y()<<endl;
 }

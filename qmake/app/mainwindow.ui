@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1240</width>
+    <width>1010</width>
     <height>453</height>
    </rect>
   </property>
@@ -222,39 +222,6 @@
    </property>
    <property name="text">
     <string>PLAY</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="PositionText">
-   <property name="geometry">
-    <rect>
-     <x>1020</x>
-     <y>60</y>
-     <width>81</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Position(x,y)</string>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="xPosSpinBox">
-   <property name="geometry">
-    <rect>
-     <x>1111</x>
-     <y>60</y>
-     <width>61</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="yPosSpinBox">
-   <property name="geometry">
-    <rect>
-     <x>1110</x>
-     <y>90</y>
-     <width>61</width>
-     <height>22</height>
-    </rect>
    </property>
   </widget>
  </widget>
