@@ -16,7 +16,8 @@ WARNINGS += -Wall
 #HEADERS += \
 #    $$myINCLUDE_DIR/widgets/mainwindow.h \
 
-QT += widgets
+QT += widgets \
+    multimedia
 
 DESTDIR = $$myDEST_ROOT
 LIBS += -L$$DESTDIR/as4 -las4
@@ -28,8 +29,10 @@ RESOURCES += \
     resource.qrc
 
 HEADERS += \
+    clickablelabel.h \
     mainwindow.h
 
 SOURCES += \
+    clickablelabel.cpp \
     main.cpp \
     mainwindow.cpp

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1005</width>
+    <width>1240</width>
     <height>453</height>
    </rect>
   </property>
@@ -22,6 +22,9 @@
      <height>421</height>
     </rect>
    </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
    <property name="currentIndex">
     <number>0</number>
    </property>
@@ -29,58 +32,20 @@
     <attribute name="title">
      <string>Tab 1</string>
     </attribute>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>964</width>
-       <height>390</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="resource.qrc">:/image/image/Pianoroll-main.png</pixmap>
-     </property>
-    </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
      <string>Tab 2</string>
     </attribute>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>964</width>
-       <height>390</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="resource.qrc">:/image/image/Pianoroll-main.png</pixmap>
-     </property>
-    </widget>
    </widget>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>50</y>
+     <y>47</y>
      <width>37</width>
-     <height>381</height>
+     <height>391</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -246,26 +211,57 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="PlayButton">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>40</x>
      <y>0</y>
-     <width>111</width>
-     <height>31</height>
+     <width>81</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
     <string>PLAY</string>
    </property>
   </widget>
+  <widget class="QLabel" name="PositionText">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>60</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Position(x,y)</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="xPosSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>1111</x>
+     <y>60</y>
+     <width>61</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="yPosSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>1110</x>
+     <y>90</y>
+     <width>61</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
- <resources>
-  <include location="resource.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>PlayButton</sender>
    <signal>clicked()</signal>
    <receiver>mainwindow</receiver>
    <slot>PlaySong()</slot>

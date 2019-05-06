@@ -4,7 +4,7 @@
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-
+    app.setStyle("fusion");
     /*
      * Create and show our main window. 'mainwindow' is the
      * root QWidget of all QWidgets in this applictaion
