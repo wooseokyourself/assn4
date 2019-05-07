@@ -33,7 +33,8 @@ namespace as4::model
 
     // type alias (TimeInterval is replaced with uint64_t at compile time)
     // time length in number of units. The unit can have different meanings.
-    using TimeInterval = uint64_t;
+    //using TimeInterval = uint64_t;
+    using TimeInterval = float;
 
     // type alias
     // Timestamp is just a specialization of TimeInterval.

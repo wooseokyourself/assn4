@@ -16,3 +16,9 @@ qmake/test_model.depends = qmake/as4
 ## Uncomment these two lines to start Problem 1
 SUBDIRS += qmake/test_io
 qmake/test_io.depends = qmake/as4
+
+HEADERS += \
+    include/model/playtrack.h
+
+SOURCES += \
+    include/model/playtrack.cpp

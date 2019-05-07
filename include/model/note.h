@@ -25,7 +25,7 @@ namespace as4::model
             bool operator==(const Note &other) const;
             bool operator!=(const Note &other) const;
 
-        private:
+        protected:
             Timestamp m_start;
             TimeInterval m_duration;
             Pitch m_pitch;

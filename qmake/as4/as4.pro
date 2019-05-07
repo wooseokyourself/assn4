@@ -21,7 +21,7 @@ SOURCES += \
     $$mySRC_DIR/model/song.cpp \
     $$mySRC_DIR/io/seqio.cpp \
     $$mySRC_DIR/io/songio.cpp \
-    $$mySRC_DIR/util/require.cpp \
+    $$mySRC_DIR/util/require.cpp
 
 # Add header files for this project
 # If your .h file is not specified in here, you might not be able to include
@@ -34,7 +34,7 @@ HEADERS += \
     $$myINCLUDE_DIR/model/song.h \
     $$myINCLUDE_DIR/io/seqio.h \
     $$myINCLUDE_DIR/io/songio.h \
-    $$myINCLUDE_DIR/util/require.h \
+    $$myINCLUDE_DIR/util/require.h
 
 ## Build target configuration
 DESTDIR = $$myDEST_ROOT/as4

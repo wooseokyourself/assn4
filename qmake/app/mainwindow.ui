@@ -43,7 +43,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>47</y>
+     <y>49</y>
      <width>37</width>
      <height>391</height>
     </rect>
@@ -222,6 +222,19 @@
    </property>
    <property name="text">
     <string>PLAY</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>0</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>test</string>
    </property>
   </widget>
  </widget>

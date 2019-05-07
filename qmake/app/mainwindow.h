@@ -5,17 +5,13 @@
 #include <QWidget>
 #include <QPaintDevice>
 #include <QMouseEvent>
-#include "clickablelabel.h"
-#include "visualnote.h"
 #include <QVector>
 
-#include "io/seqio.h"
-#include "io/songio.h"
-#include "model/time.h"
-#include "model/note.h"
+#include "clickablelabel.h"
+#include "visualnote.h"
+#include "playsong.h"
 
 using namespace as4::model;
-using namespace as4::io;
 
 namespace Ui {
 class mainwindow;
@@ -47,6 +43,8 @@ protected slots:
 private slots:
     void on_PlayButton_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::mainwindow *ui;
     ClickableLabel* MelodyRoll;
@@ -54,6 +52,7 @@ private:
     QVector<VisualNote*> melody_notes;
     QVector<VisualNote*> drum_notes;
     Song *FullSong;
+    PlaySong Player;
 };
 
 #endif

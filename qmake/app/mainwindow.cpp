@@ -176,5 +176,11 @@ void mainwindow::RemoveDrumNote(QPoint pos, ClickableLabel* tab)
 
 void mainwindow::on_PlayButton_clicked()
 {
-    // 여기서 Song을 재생하기
+    Player.SetAndPlay(FullSong);
+
+}
+
+void mainwindow::on_pushButton_clicked()
+{
+    Player.test();
 }
