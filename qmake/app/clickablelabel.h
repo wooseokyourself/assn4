@@ -12,6 +12,10 @@
 
 using namespace std;
 
+namespace Ui{
+class ClickableLabel;
+}
+
 class ClickableLabel : public QLabel
 {
     Q_OBJECT

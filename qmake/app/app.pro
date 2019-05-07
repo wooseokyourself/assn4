@@ -10,12 +10,6 @@ CONFIG += debug c++14
 TARGET = assignment4
 WARNINGS += -Wall
 
-#SOURCES += $$mySRC_DIR/main.cpp \
-#    $$mySRC_DIR/widgets/mainwindow.cpp \
-
-#HEADERS += \
-#    $$myINCLUDE_DIR/widgets/mainwindow.h \
-
 QT += widgets \
     multimedia
 

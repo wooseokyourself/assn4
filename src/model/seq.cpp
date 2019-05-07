@@ -41,10 +41,12 @@ namespace as4::model
 
     void ISeq::Put(const Note &note)
     {
+        std::cout<<" >> seq::put() 작동!"<<std::endl;
         m_notes.push_back(new Note(note));
         // Since we use a simple vector,
         // we must sort the vector everytime we modify m_notes
         Sort();
+        std::cout<<" >> seq::m_notes size : "<<m_notes.size()<<std::endl;
     }
 
     std::vector<Note*> ISeq::Get(const Timestamp &pos_seeker)
@@ -84,6 +86,15 @@ namespace as4::model
     {
         // Just copy notes directly since they are already ordered
         return m_notes;
+    }
+
+    Note* ISeq::FindNote(Note target) const
+    {
+        for(int i=0; i<m_notes.size(); i++){
+            if(*m_notes[i] == target){
+                return m_notes[i];
+            }
+        }
     }
 
     TimeInterval ISeq::GetSeqTimeLength() const

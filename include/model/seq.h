@@ -89,6 +89,9 @@ namespace as4::model
              * Length of a sequence is defined by the max value of start time
              * plus duration of the note.
              */
+
+            Note* FindNote(Note target) const; // target과 동일한 정보를 가진 Note의 포인터 반환
+
             TimeInterval GetSeqTimeLength() const;
 
             int getSize() const{

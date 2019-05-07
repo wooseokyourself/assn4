@@ -5,6 +5,10 @@
 #include <QWidget>
 #include <Qt>
 
+namespace Ui{
+class VusualNote;
+}
+
 class VisualNote : public QLabel
 {
     Q_OBJECT
@@ -16,8 +20,6 @@ public:
     int getY() const;
     void set(QPoint pos);
     bool find(int x, int y);
-
-protected slots:
 
 private:
     int x;

@@ -38,6 +38,17 @@ namespace as4::model
     {
         return !(*this == other);
     }
+
+    void Pitch::operator++()
+    {
+        if(m_pitch_class == 0){
+            m_octave--;
+            m_pitch_class = 11;
+        }
+        else{
+            m_pitch_class--;
+        }
+    }
 }
 
 namespace as4::model::pitch
