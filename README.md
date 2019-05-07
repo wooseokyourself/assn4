@@ -68,8 +68,14 @@ QVector을 melody용과 drum용 두 개로 나눔. UI에 보이고 삭제되는 
 
 pos와 Note 매핑하는 공식 적용 완료, Note 클래스의 == 연산자 통해 적용함.
 
-매핑을 위해서는 mainwindow::Put , Remove 메소드에서 pos의 x, y값이 roughValue / 24(1unit의 길이) 로 계산되어 0 또는 0보다 큰 정수로 
-  
-전달되어야 함에 유의. Put에서는 이렇게 계산된 값이 int x, int y 이고 Remove에서는 int _x, int_y 임.
+매핑을 위해서는 mainwindow::Put , mainwindow::Remove 메소드에서 pos의 x, y값이 roughValue / 24(1unit의 길이) 로 계산되어
+
+0 또는 0보다 큰 정수로 전달되어야 함에 유의. (이 때, roughValue란 순수히 마우스의 클릭만으로 얻어진 초기값)
+
+Put에서는 이렇게 계산된 값이 int x, int y 이고 Remove에서는 int _x, int_y 임.
+
+이제 FullSong 객체를 토대로 .wav 리소스 파일들을 알맞게 저장하고, 그것들을 재생하는 클래스를 구현하고
+
+Play 버튼의 시그널로 그 클래스의 슬롯을 호출하여 음악이 재생되는 기능만 구현하면 됨.
 
 
