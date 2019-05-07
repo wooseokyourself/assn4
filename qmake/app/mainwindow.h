@@ -7,7 +7,7 @@
 #include <QMouseEvent>
 #include "clickablelabel.h"
 #include "visualnote.h"
-#include <vector>
+#include <QVector>
 
 namespace Ui {
 class mainwindow;
@@ -25,14 +25,17 @@ protected:
     void mouseMoveEvent(QMouseEvent* event) override;
 
 protected slots:
-    void PutNote(QPoint pos, ClickableLabel* tab);
-    void RemoveNote(QPoint pos, ClickableLabel* tab);
+    void PutMelodyNote(QPoint pos, ClickableLabel* tab);
+    void PutDrumNote(QPoint pos, ClickableLabel* tab);
+    void RemoveMelodyNote(QPoint pos, ClickableLabel* tab);
+    void RemoveDrumNote(QPoint pos, ClickableLabel* tab);
 
 private:
     Ui::mainwindow *ui;
     ClickableLabel* MelodyRoll;
     ClickableLabel* DrumRoll;
-    vector<VisualNote*> notes;
+    QVector<VisualNote*> melody_notes;
+    QVector<VisualNote*> drum_notes;
 };
 
 #endif

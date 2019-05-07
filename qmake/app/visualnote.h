@@ -17,6 +17,8 @@ public:
     void set(QPoint pos);
     bool find(int x, int y);
 
+protected slots:
+
 private:
     int x;
     int y;
