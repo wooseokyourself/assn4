@@ -16,7 +16,9 @@ namespace as4::io
 
         std::ifstream& operator>> (std::ifstream& in, as4::model::Song& song);
 
-        void WritePathFile (std::ofstream& out, as4::model::Song& song);
+        void WriteAllPathFile (std::ofstream& out, as4::model::Song& song);
+
+        void WriteTrackPathFile (std::ofstream& out, as4::model::Song& song);
     }
 }
 

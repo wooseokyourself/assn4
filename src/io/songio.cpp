@@ -23,7 +23,6 @@ namespace as4::io
                 out << (*song.GetMelodySeq())[i]->GetPitch().GetOctave();
                 out << std::endl;
             }
-
             out << "[Drum]" << endl;
             for(int i=0; i<song.GetDrumSeq()->getSize(); i++){
                 out << (*song.GetDrumSeq())[i]->GetStart();
@@ -37,7 +36,6 @@ namespace as4::io
             }
             out.close();
             return out;
-
         }
 
         std::ifstream& operator>> (std::ifstream& in, as4::model::Song& song)
@@ -94,11 +92,11 @@ namespace as4::io
             return in;
         }
 
-        void WritePathFile (std::ofstream& out, as4::model::Song& song)
+        void WriteAllPathFile (std::ofstream& out, as4::model::Song& song)
         {
             // 멜로디경로 - :/audio/melody/audio/melody/?_?.wav
             // 드럼 경로 - :/audio/drum/audio/drum/?_?.wav
-            // 파일형식 - [start] [duration] [path]
+            // 파일형식 - [instrumentType] [start] [duration] [path]
             int maxIdx = max(song.GetMelodySeq()->getSize(), song.GetDrumSeq()->getSize());
             std::cout<<" >> max : "<<maxIdx<<endl;
             for(int i=0; i<maxIdx; i++){
@@ -119,6 +117,21 @@ namespace as4::io
             out.close();
         }
 
-
+        void WriteTrackPathFile (std::ofstream& out, as4::model::Song& song)
+        {
+            out << "[Melody]" << endl;
+            for(int i=0; i<song.GetMelodySeq()->getSize(); i++){
+                out<<(*song.GetMelodySeq())[i]->GetStart()<<" "<<(*song.GetMelodySeq())[i]->GetDuration()
+                  <<" "<<":/audio/melody/audio/melody/"<<(*song.GetMelodySeq())[i]->GetPitch().GetPitchClass()
+                  <<"_"<<(*song.GetMelodySeq())[i]->GetPitch().GetOctave()<<".wav"<<endl;
+            }
+            out << "[Drum]" << endl;
+            for(int i=0; i<song.GetDrumSeq()->getSize(); i++){
+                out<<(*song.GetDrumSeq())[i]->GetStart()<<" "<<(*song.GetDrumSeq())[i]->GetDuration()
+                  <<" "<<":/audio/drum/audio/drum/"<<(*song.GetDrumSeq())[i]->GetPitch().GetPitchClass()
+                  <<"_"<<(*song.GetDrumSeq())[i]->GetPitch().GetOctave()<<".wav"<<endl;
+            }
+            out.close();
+        }
     }
 }

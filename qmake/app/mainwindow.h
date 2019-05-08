@@ -28,7 +28,7 @@ protected:
     void mousePressEvent(QMouseEvent* event) override;
     void mouseMoveEvent(QMouseEvent* event) override;
 
-signals: // 실제 구현되지 않음. 앞으로 구현해야 함.
+signals:
     void PutInSequence(int start, int duration, int pitch, int octave);
     void PutInSequenceDrum(int start, int duration, int pitch, int octave);
     void RemoveFromSequenceMelody(int start, int duration, int pitch, int octave);

@@ -26,6 +26,7 @@ HEADERS += \
     clickablelabel.h \
     mainwindow.h \
     playsong.h \
+    tracks.h \
     visualnote.h
 
 SOURCES += \
@@ -33,4 +34,5 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     playsong.cpp \
+    tracks.cpp \
     visualnote.cpp
