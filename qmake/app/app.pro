@@ -23,6 +23,7 @@ RESOURCES += \
     resource.qrc
 
 HEADERS += \
+    autostopsoundeffect.h \
     clickablelabel.h \
     mainwindow.h \
     playsong.h \
@@ -30,6 +31,7 @@ HEADERS += \
     visualnote.h
 
 SOURCES += \
+    autostopsoundeffect.cpp \
     clickablelabel.cpp \
     main.cpp \
     mainwindow.cpp \

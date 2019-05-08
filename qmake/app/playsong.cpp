@@ -10,7 +10,7 @@ PlaySong::PlaySong()
 
 PlaySong::~PlaySong()
 {
-
+    delete Track;
 }
 
 void PlaySong::SetAndPlay(Song* FullSong, QTabWidget* tabWidget)
@@ -19,23 +19,20 @@ void PlaySong::SetAndPlay(Song* FullSong, QTabWidget* tabWidget)
     // 이후 그 트랙 객체 메소드를 통해 filepath를 쓰는 것부터, 곡 재생까지 진행.
     // 재생을 완료하였으면 트랙 객체 삭제후 이 함수 리턴
 
-    DefaultTrack* track;
-
     if(tabWidget->currentIndex() == 0){
-        track = new DefaultTrack;
-        track->setPath(FullSong->GetMelodySeq());
+        Track = new DefaultTrack;
+        Track->setPath(FullSong->GetMelodySeq());
     }
     else if(tabWidget->currentIndex() == 1){
-        track = new DrumTrack;
-        track->setPath(FullSong->GetDrumSeq());
+        Track = new DrumTrack;
+        Track->setPath(FullSong->GetDrumSeq());
     }
     else{
         std::cout<<" >> Invalid track. Choice the tab widget."<<std::endl;
         return;
     }
-    track->play();
+    Track->setVector();
 
-    delete track;
 
     cout<<" >> SetAndPlay() exit!"<<endl;
 }

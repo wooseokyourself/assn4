@@ -26,6 +26,7 @@ public:
 
 private:
     Song *Tracks;
+    DefaultTrack* Track;
     std::vector< std::vector<QSoundEffect*>* > AllTrackSounds;
 };
 
