@@ -79,3 +79,12 @@ Put에서는 이렇게 계산된 값이 int x, int y 이고 Remove에서는 int 
 Play 버튼의 시그널로 그 클래스의 슬롯을 호출하여 음악이 재생되는 기능만 구현하면 됨.
 
 
+-----
+5.9 (D-2)
+-
+대부분 구현 완료 ; PlaySong 객체에서 현재 탭 위젯을 기준으로 DefaultTrack, DrumTrack 중에서 하나 생성함. 여기서 지지고 볶고 재생
+             ; QSoundEffect를 상속하는 AutoStopSoundEffect 클래스 구현함. 이를 통해 각 노트의 재생시간 설정 가능해짐.
+
+추가 구현해야 할 사항 : Drum의 AutoStopSoundEffect에는 Duration을 현재 소스의 wav파일 길이만큼으로 받아와야 하는 기능이 들어가야함
+한 트랙의 재생(5초)이 완료되면(즉, 트랙재생 타이머의 timeInterval(5000) 이 끝나면) 프로그램 튕김. 이거고쳐야함
+
