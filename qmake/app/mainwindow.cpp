@@ -177,17 +177,4 @@ void mainwindow::RemoveDrumNote(QPoint pos, ClickableLabel* tab)
 void mainwindow::on_PlayButton_clicked()
 {
     Player.SetAndPlay(FullSong, ui->tabWidget);
-
-}
-
-void mainwindow::on_pushButton_clicked()
-{
-    QSoundEffect effect;
-    effect.setSource(QUrl::fromLocalFile(":/audio/melody/audio/melody/3_4.wav"));
-    effect.setLoopCount(QSoundEffect::Infinite);
-    effect.setVolume(0.25f);
-    effect.play();
-    QThread::msleep(5000);
-    Player.test();
-
 }

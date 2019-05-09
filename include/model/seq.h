@@ -103,7 +103,7 @@ namespace as4::model
             bool operator== (const ISeq& other) const;
 
             void PopBack();
-
+            // 내가 정의.
 
     private:
         void Sort();

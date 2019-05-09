@@ -92,46 +92,6 @@ namespace as4::io
             return in;
         }
 
-        void WriteAllPathFile (std::ofstream& out, as4::model::Song& song)
-        {
-            // 멜로디경로 - :/audio/melody/audio/melody/?_?.wav
-            // 드럼 경로 - :/audio/drum/audio/drum/?_?.wav
-            // 파일형식 - [instrumentType] [start] [duration] [path]
-            int maxIdx = max(song.GetMelodySeq()->getSize(), song.GetDrumSeq()->getSize());
-            std::cout<<" >> max : "<<maxIdx<<endl;
-            for(int i=0; i<maxIdx; i++){
-                if(i<song.GetMelodySeq()->getSize()){
-                    out<<(*song.GetMelodySeq())[i]->GetStart()<<" "<<(*song.GetMelodySeq())[i]->GetDuration()
-                      <<" "<<":/audio/melody/audio/melody/"<<(*song.GetMelodySeq())[i]->GetPitch().GetPitchClass()
-                      <<"_"<<(*song.GetMelodySeq())[i]->GetPitch().GetOctave()<<".wav"<<endl;
-                    cout<<" >> melody i : "<<i<<endl;
-                }
-                if(i<song.GetDrumSeq()->getSize()){
-                    out<<(*song.GetDrumSeq())[i]->GetStart()<<" "<<(*song.GetDrumSeq())[i]->GetDuration()
-                      <<" "<<":/audio/drum/audio/drum/"<<(*song.GetDrumSeq())[i]->GetPitch().GetPitchClass()
-                      <<"_"<<(*song.GetDrumSeq())[i]->GetPitch().GetOctave()<<".wav"<<endl;
-                    cout<<" >> drum i : "<<i<<endl;
-                }
-            }
-            cout<<" >> SongPath.txt 입력완료"<<endl;
-            out.close();
-        }
-
-        void WriteTrackPathFile (std::ofstream& out, as4::model::Song& song)
-        {
-            out << "[Melody]" << endl;
-            for(int i=0; i<song.GetMelodySeq()->getSize(); i++){
-                out<<(*song.GetMelodySeq())[i]->GetStart()<<" "<<(*song.GetMelodySeq())[i]->GetDuration()
-                  <<" "<<":/audio/melody/audio/melody/"<<(*song.GetMelodySeq())[i]->GetPitch().GetPitchClass()
-                  <<"_"<<(*song.GetMelodySeq())[i]->GetPitch().GetOctave()<<".wav"<<endl;
-            }
-            out << "[Drum]" << endl;
-            for(int i=0; i<song.GetDrumSeq()->getSize(); i++){
-                out<<(*song.GetDrumSeq())[i]->GetStart()<<" "<<(*song.GetDrumSeq())[i]->GetDuration()
-                  <<" "<<":/audio/drum/audio/drum/"<<(*song.GetDrumSeq())[i]->GetPitch().GetPitchClass()
-                  <<"_"<<(*song.GetDrumSeq())[i]->GetPitch().GetOctave()<<".wav"<<endl;
-            }
-            out.close();
-        }
     }
+
 }

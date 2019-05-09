@@ -2,13 +2,19 @@
 
 #include "model/time.h"
 
-
 namespace as4::model
 {
     TimeConfig::TimeConfig(double bpm, uint64_t granuality) :
         m_bpm(bpm),
         m_granuality(granuality)
     {}
+
+    int TimeConfig::miliSeconds(const TimeInterval &t) const
+    {
+        const auto seconds = Seconds(t);
+        const auto miliseconds = seconds * 1000;
+        return miliseconds;
+    }
 
     double TimeConfig::Seconds(const TimeInterval &t) const
     {

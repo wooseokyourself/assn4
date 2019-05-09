@@ -20,9 +20,7 @@ namespace as4::model
     class Song
     {
     public:
-        Song(){
-            std::cout<<"Song 생성자!"<<std::endl;
-        }
+        Song();
         // Don't delete pointers returned from these methods
         const DefaultSeq* GetMelodySeq() const;
         DefaultSeq* GetMelodySeq();

@@ -1,8 +1,8 @@
 #include "tracks.h"
 
-DefaultTrack::DefaultTrack(QWidget *parent) : QWidget(parent)
+DefaultTrack::DefaultTrack(QWidget *parent) : QWidget(parent), timeConfig(120, 4)
 {
-
+    timer = new QTimer(this);
 }
 
 //DrumTrack::DrumTrack(QWidget *parent) : QWidget(parent), DefaultTrack ()
@@ -70,16 +70,16 @@ void DefaultTrack::setVector()
         fin >> duration;
         fin >> path;
         startIdx = start/0.5 - 1;
-
+        if(fin.eof())
+            break;
         if(Sound[startIdx] == nullptr){
-            Sound[startIdx] = new std::vector<AutoStopSoundEffect*>;
+            Sound[startIdx] = new std::vector<DefaultSoundEffect*>;
         }
 
-        AutoStopSoundEffect* wav_file;
+        DefaultSoundEffect* wav_file;
         Sound[startIdx]->push_back(wav_file);
-        Sound[startIdx]->back() = new AutoStopSoundEffect(duration);
+        Sound[startIdx]->back() = new AutoStopSoundEffect(timeConfig.miliSeconds(duration));
         Sound[startIdx]->back()->setSource(QUrl::fromUserInput(path.c_str()));
-        Sound[startIdx]->back()->setLoopCount(QSoundEffect::Infinite);
         Sound[startIdx]->back()->setVolume(0.5f);
 
         // 이하 네줄 디버깅용
@@ -90,23 +90,67 @@ void DefaultTrack::setVector()
     }
     fin.close();
 
-    timer = new QTimer(this);
-    timer->setInterval(5000);
+    play();
+}
+
+void DrumTrack::setVector()
+{
+    for(int i=0; i<40; i++){
+        Sound.push_back(nullptr);
+    }
+
+    int startIdx;
+    float start, duration;
+    std::string path;
+
+    std::ifstream fin(file);
+    while(!fin.eof()){
+        fin >> start;
+        fin >> duration;
+        fin >> path;
+        startIdx = start/0.5 - 1;
+        if(fin.eof())
+            break;
+        if(Sound[startIdx] == nullptr){
+            Sound[startIdx] = new std::vector<DefaultSoundEffect*>;
+        }
+
+
+        DefaultSoundEffect* wav_file;
+        Sound[startIdx]->push_back(wav_file);
+        Sound[startIdx]->back() = new DefaultSoundEffect;
+        Sound[startIdx]->back()->setSource(QUrl::fromUserInput(path.c_str()));
+        Sound[startIdx]->back()->setVolume(0.5f);
+
+        // 이하 네줄 디버깅용
+        QUrl url = Sound[startIdx]->back()->source();
+        QString qst = url.toString();
+        std::string reals = qst.toStdString();
+        std::cout<<" >> 벡터 안에서 입력된 소스경로   : "<<reals<<std::endl;
+    }
+    fin.close();
+
+    play();
+}
+
+void DefaultTrack::play()
+{
+    //timer->setInterval(timeConfig.miliSeconds(2)); // 총 5비트 = 40유닛
     connect(timer, SIGNAL(timeout()), this, SLOT(playUnit()));
 
     increasingIdx = 0;
-    timer->start(125);
-    if(timer->isActive()){
-        std::cout<<" >> 시계가 동작한다네"<<std::endl;
-    }
-    else {
-        std::cout<<" >> 시계가 멈춰있다네"<<std::endl;
-    }
-
+    timer->start(timeConfig.miliSeconds(1));
 }
 
 void DefaultTrack::playUnit()
 {
+    if(increasingIdx >= 40){ // 최대 벡터는 40
+        std::cout<<" >> 벡터 idx 40 도달"<<std::endl;
+        timer->stop();
+        increasingIdx = 0;
+        return;
+    }
+
     if(Sound[increasingIdx] == nullptr){
         increasingIdx++;
         return;
@@ -114,12 +158,17 @@ void DefaultTrack::playUnit()
     for(int i=0; i<Sound[increasingIdx]->size(); i++){
         Sound[increasingIdx]->operator[](i)->play();
         if(Sound[increasingIdx]->operator[](i)->isPlaying())
-            std::cout<<" >> Yes!"<<std::endl;
+            std::cout<<" >> play!"<<std::endl;
         else {
-            std::cout<<" >> No.."<<std::endl;
+            std::cout<<" >> can't play"<<std::endl;
         }
     }
+    std::cout<<" >> 현재 벡터 idx : "<<increasingIdx<<std::endl;
     increasingIdx++;
 }
 
+bool DefaultTrack::isPlay()
+{
+    return timer->isActive();
+}
 

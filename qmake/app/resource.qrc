@@ -2,7 +2,6 @@
     <qresource prefix="/image">
         <file>image/Pianoroll-main.png</file>
         <file>image/bar.png</file>
-        <file>image/stick.png</file>
     </qresource>
     <qresource prefix="/audio/melody">
         <file>audio/melody/9_4.wav</file>

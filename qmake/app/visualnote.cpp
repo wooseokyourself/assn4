@@ -9,7 +9,6 @@ VisualNote::VisualNote(QWidget* parent, Qt::WindowFlags f)
 
 VisualNote::~VisualNote()
 {
-    std::cout<<"소멸자다 이새끼야!"<<std::endl;
 }
 
 int VisualNote::getX() const
@@ -30,7 +29,7 @@ void VisualNote::set(QPoint pos)
     y = pos.y()/24;
     y *= 24;
     y += 4;
-    setGeometry(x, y, 88, 22);
+    setGeometry(x, y, 92, 22);
     show();
 }
 

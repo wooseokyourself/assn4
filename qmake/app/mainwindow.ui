@@ -30,19 +30,19 @@
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
-     <string>Tab 1</string>
+     <string>Melody</string>
     </attribute>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
-     <string>Tab 2</string>
+     <string>Drum</string>
     </attribute>
    </widget>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>4</x>
      <y>49</y>
      <width>37</width>
      <height>391</height>
@@ -224,39 +224,9 @@
     <string>PLAY</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>860</x>
-     <y>0</y>
-     <width>91</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>test</string>
-   </property>
-  </widget>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>PlayButton</sender>
-   <signal>clicked()</signal>
-   <receiver>mainwindow</receiver>
-   <slot>PlaySong()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>106</x>
-     <y>9</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>219</x>
-     <y>13</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>PlaySong()</slot>
  </slots>

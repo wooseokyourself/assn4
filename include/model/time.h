@@ -77,6 +77,9 @@ namespace as4::model
              */
             TimeConfig(double bpm, uint64_t granuality);
 
+            int miliSeconds(const TimeInterval &t) const;
+            // 내가 정의 : TimeInterval --> miliSeconds
+
             double Seconds(const TimeInterval &t) const;
             // TimeInterval --> seconds
 
