@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <iostream>
 #include "model/seq.h"
 
 namespace as4::model
@@ -41,12 +40,10 @@ namespace as4::model
 
     void ISeq::Put(const Note &note)
     {
-        std::cout<<" >> seq::put() 작동!"<<std::endl;
         m_notes.push_back(new Note(note));
         // Since we use a simple vector,
         // we must sort the vector everytime we modify m_notes
         Sort();
-        std::cout<<" >> seq::m_notes size : "<<m_notes.size()<<std::endl;
     }
 
     std::vector<Note*> ISeq::Get(const Timestamp &pos_seeker)
@@ -123,9 +120,7 @@ namespace as4::model
 
     bool ISeq::operator== (const ISeq& other) const
     {
-        //std::cout<<" >> 시퀀스 == 연산자 작동!"<<std::endl;
         if(m_notes.size()!=other.getSize()){
-        //    std::cout<<" >> return false; 두 시퀀스의 size가 다릅니다("<<m_notes.size()<<"/"<<other.getSize()<<")."<<std::endl;
             return false;
         }
 
@@ -135,7 +130,6 @@ namespace as4::model
                    m_notes[i]->GetDuration() != other.m_notes[i]->GetDuration() ||
                    m_notes[i]->GetPitch().GetPitchClass() != other.m_notes[i]->GetPitch().GetPitchClass() ||
                    m_notes[i]->GetPitch().GetOctave() != other.m_notes[i]->GetPitch().GetOctave()){
-                   //std::cout<<" >> return false; 두 시퀀스의 내용이 다릅니다."<<std::endl;
                    return false;
                 }
             }

@@ -1,9 +1,5 @@
 #include "soundeffect.h"
 
-// 이하 두 선언 디버깅용
-#include <iostream>
-using namespace std;
-
 DefaultSoundEffect::DefaultSoundEffect()
 {
 
@@ -32,7 +28,6 @@ AutoStopSoundEffect::~AutoStopSoundEffect()
 
 void AutoStopSoundEffect::play()
 {
-    cout<<" AutoStopSoundEffect.play()!"<<endl;
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(stop()));
     QSoundEffect::play();

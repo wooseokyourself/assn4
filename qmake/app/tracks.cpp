@@ -14,7 +14,6 @@ DrumTrack::DrumTrack() : DefaultTrack ()
 
 DefaultTrack::~DefaultTrack()
 {
-    std::cout<<" > DefaultTrack destructor!"<<std::endl;
     for(int i=0; i<Sound.size(); i++){
         if(Sound[i] == nullptr)
             continue;
@@ -81,12 +80,6 @@ void DefaultTrack::setVector()
         Sound[startIdx]->back() = new AutoStopSoundEffect(timeConfig.miliSeconds(duration));
         Sound[startIdx]->back()->setSource(QUrl::fromUserInput(path.c_str()));
         Sound[startIdx]->back()->setVolume(0.5f);
-
-        // 이하 네줄 디버깅용
-        QUrl url = Sound[startIdx]->back()->source();
-        QString qst = url.toString();
-        std::string reals = qst.toStdString();
-        std::cout<<" >> 벡터 안에서 입력된 소스경로   : "<<reals<<std::endl;
     }
     fin.close();
 
@@ -121,12 +114,6 @@ void DrumTrack::setVector()
         Sound[startIdx]->back() = new DefaultSoundEffect;
         Sound[startIdx]->back()->setSource(QUrl::fromUserInput(path.c_str()));
         Sound[startIdx]->back()->setVolume(0.5f);
-
-        // 이하 네줄 디버깅용
-        QUrl url = Sound[startIdx]->back()->source();
-        QString qst = url.toString();
-        std::string reals = qst.toStdString();
-        std::cout<<" >> 벡터 안에서 입력된 소스경로   : "<<reals<<std::endl;
     }
     fin.close();
 
@@ -145,7 +132,7 @@ void DefaultTrack::play()
 void DefaultTrack::playUnit()
 {
     if(increasingIdx >= 40){ // 최대 벡터는 40
-        std::cout<<" >> 벡터 idx 40 도달"<<std::endl;
+        std::cout<<" >> Playing is done."<<std::endl;
         timer->stop();
         increasingIdx = 0;
         return;
@@ -157,13 +144,7 @@ void DefaultTrack::playUnit()
     }
     for(int i=0; i<Sound[increasingIdx]->size(); i++){
         Sound[increasingIdx]->operator[](i)->play();
-        if(Sound[increasingIdx]->operator[](i)->isPlaying())
-            std::cout<<" >> play!"<<std::endl;
-        else {
-            std::cout<<" >> can't play"<<std::endl;
-        }
     }
-    std::cout<<" >> 현재 벡터 idx : "<<increasingIdx<<std::endl;
     increasingIdx++;
 }
 

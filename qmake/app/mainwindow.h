@@ -43,6 +43,8 @@ protected slots:
 private slots:
     void on_PlayButton_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::mainwindow *ui;
     ClickableLabel* MelodyRoll;

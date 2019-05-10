@@ -17,8 +17,8 @@ qmake/test_model.depends = qmake/as4
 SUBDIRS += qmake/test_io
 qmake/test_io.depends = qmake/as4
 
-HEADERS += \
-    include/model/playtrack.h
+#HEADERS += \
+ #   include/model/playtrack.h
 
-SOURCES += \
-    include/model/playtrack.cpp
+#SOURCES += \
+ #   include/model/playtrack.cpp

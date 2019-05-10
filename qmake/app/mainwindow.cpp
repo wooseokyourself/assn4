@@ -37,7 +37,6 @@ void mainwindow::mouseMoveEvent(QMouseEvent* event)
 
 void mainwindow::PutMelodyNote(QPoint pos, ClickableLabel* tab)
 {
-    cout<<" >> 슬롯 실행 : PutNote"<<endl;
     int x = pos.x()/24;
     int y = pos.y()/24;
 
@@ -45,7 +44,6 @@ void mainwindow::PutMelodyNote(QPoint pos, ClickableLabel* tab)
     VisualNote *note = new VisualNote(tab);
     melody_notes.push_back(note);
     melody_notes.back()->set(pos);
-    cout<<" >> melody size : "<<melody_notes.size()<<endl;
 
     // 이하 ISeq용 push
     as4::model::Timestamp start = 0.5+(0.5*x);
@@ -54,15 +52,11 @@ void mainwindow::PutMelodyNote(QPoint pos, ClickableLabel* tab)
         topPitch.operator++();
         // 이제 이 topPitch를 sequence에 집어넣기
     }
-    cout<<" >> new start : "<<start<<endl;
-    cout<<" >> new pitch : "<<topPitch.GetPitchClass()<<endl;
-    cout<<" >> new octave : "<<topPitch.GetOctave()<<endl;
     FullSong->GetMelodySeq()->Put({start, 2, {topPitch.GetPitchClass(), topPitch.GetOctave()}});
 }
 
 void mainwindow::PutDrumNote(QPoint pos, ClickableLabel* tab)
 {
-    cout<<" >> 슬롯 실행 : PutNote"<<endl;
     int x = pos.x()/24;
     int y = pos.y()/24;
 
@@ -70,7 +64,6 @@ void mainwindow::PutDrumNote(QPoint pos, ClickableLabel* tab)
     VisualNote *note = new VisualNote(tab);
     drum_notes.push_back(note);
     drum_notes.back()->set(pos);
-    cout<<" >> drum size : "<<drum_notes.size()<<endl;
 
     // 이하 ISeq용 push
     as4::model::Timestamp start = 0.5+(0.5*x);
@@ -79,15 +72,11 @@ void mainwindow::PutDrumNote(QPoint pos, ClickableLabel* tab)
         topPitch.operator++();
         // 이제 이 topPitch를 sequence에 집어넣기
     }
-    cout<<" >> new start : "<<start<<endl;
-    cout<<" >> new pitch : "<<topPitch.GetPitchClass()<<endl;
-    cout<<" >> new octave : "<<topPitch.GetOctave()<<endl;
     FullSong->GetDrumSeq()->Put({start, 2, {topPitch.GetPitchClass(), topPitch.GetOctave()}});
 }
 
 void mainwindow::RemoveMelodyNote(QPoint pos, ClickableLabel* tab)
 {
-    cout<<" >> 슬롯 실행 : RemoveNote"<<endl;
     int x = pos.x()/24;
     int _x = x;
     x *= 24;
@@ -101,24 +90,18 @@ void mainwindow::RemoveMelodyNote(QPoint pos, ClickableLabel* tab)
         if(melody_notes[i]->find(x, y)){
             melody_notes[i]->hide();
             melody_notes.remove(i);
-            cout<<" >> melody size : "<<melody_notes.size()<<endl;
             break;
         }
     }
 
     // 이하 ISeq용 pop
     as4::model::Timestamp start = 0.5+(0.5*_x);
-    cout<<" >> start : "<<start<<endl;
     Pitch topPitch(3, 5);
     for(int i=0; i!=_y; i++){
         topPitch.operator++();
     }
     as4::model::Note target(start, 2, topPitch);
     // 이제 target을 이용해 ISeq에서 일치하는 요소 제거
-
-    cout<<" >> target start : "<<target.GetStart()<<endl;
-    cout<<" >> target pitch : "<<target.GetPitch().GetPitchClass()<<endl;
-    cout<<" >> target octave : "<<target.GetPitch().GetOctave()<<endl;
 
     Note* detectedTarget = FullSong->GetMelodySeq()->FindNote(target);
     if(FullSong->GetMelodySeq()->Remove(detectedTarget)){
@@ -131,7 +114,6 @@ void mainwindow::RemoveMelodyNote(QPoint pos, ClickableLabel* tab)
 
 void mainwindow::RemoveDrumNote(QPoint pos, ClickableLabel* tab)
 {
-    cout<<" >> 슬롯 실행 : RemoveNote"<<endl;
     int x = pos.x()/24;
     int _x = x;
     x *= 24;
@@ -160,10 +142,6 @@ void mainwindow::RemoveDrumNote(QPoint pos, ClickableLabel* tab)
     as4::model::Note target(start, 2, topPitch);
     // 이제 target을 이용해 ISeq에서 일치하는 요소 제거
 
-    cout<<" >> target start : "<<target.GetStart()<<endl;
-    cout<<" >> target pitch : "<<target.GetPitch().GetPitchClass()<<endl;
-    cout<<" >> target octave : "<<target.GetPitch().GetOctave()<<endl;
-
     Note* detectedTarget = FullSong->GetDrumSeq()->FindNote(target);
     if(FullSong->GetDrumSeq()->Remove(detectedTarget)){
         cout<<" >> ISeq target 제거완료"<<endl;
@@ -177,4 +155,9 @@ void mainwindow::RemoveDrumNote(QPoint pos, ClickableLabel* tab)
 void mainwindow::on_PlayButton_clicked()
 {
     Player.SetAndPlay(FullSong, ui->tabWidget);
+}
+
+void mainwindow::on_pushButton_clicked()
+{
+    exit(1);
 }

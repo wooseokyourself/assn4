@@ -8,8 +8,6 @@
 #include <QMouseEvent>
 #include <QPoint>
 
-#include <iostream>
-
 using namespace std;
 
 namespace Ui{

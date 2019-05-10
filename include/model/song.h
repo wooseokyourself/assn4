@@ -20,7 +20,6 @@ namespace as4::model
     class Song
     {
     public:
-        Song();
         // Don't delete pointers returned from these methods
         const DefaultSeq* GetMelodySeq() const;
         DefaultSeq* GetMelodySeq();
